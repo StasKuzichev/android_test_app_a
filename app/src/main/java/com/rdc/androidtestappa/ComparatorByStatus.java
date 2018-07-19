@@ -1,3 +1,5 @@
+package com.rdc.androidtestappa;
+
 import java.util.Comparator;
 
 public class ComparatorByStatus implements Comparator {							//сортировка по статусу

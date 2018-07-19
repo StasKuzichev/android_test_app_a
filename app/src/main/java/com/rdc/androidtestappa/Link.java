@@ -1,12 +1,13 @@
-import android.support.annotation.NonNull;
+package com.rdc.androidtestappa;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class Link implements Comparable{								//модель ссылки
     private int id, status;
     private String url;
-    private LocalDate date;
-    Link(int id, String url, int status, LocalDate date){			    //присваивание параметров
+    private Date date;
+    Link(int id, String url, int status, Date date){			    //присваивание параметров
         this.id = id;
         this.status = status;
         this.url = url;
@@ -33,7 +34,7 @@ public class Link implements Comparable{								//модель ссылки
     public String GetURL() {											//Геттер ссылки
         return this.url;
     }
-    public LocalDate GetDate() {										//Геттер даты/времени
+    public Date GetDate() {										//Геттер даты/времени
         return this.date;
     }
 }
