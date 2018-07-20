@@ -138,8 +138,19 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            switch (position) {
+                //it is not our tab
+//                case 0:
+//                    FirstTab firstTab = new FirstTab();
+//                    return firstTab;
+//                    break;
+                case 1:
+                    SecondTab secondTab = new SecondTab();
+                    return secondTab;
+                    break;
+                default :
+                    return null;
+            }
         }
 
         @Override
