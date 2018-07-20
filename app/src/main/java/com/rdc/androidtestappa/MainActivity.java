@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -78,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -119,9 +122,7 @@ public class MainActivity extends AppCompatActivity {
                 case 1:
                     SecondTab secondTab = new SecondTab();
                     return secondTab;
-                case 2:
-                    ThirdTab thirdTab = new ThirdTab();
-                    return thirdTab;
+
                 default:
                     return null;
             }
@@ -129,8 +130,9 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 3;
+            return 2;
         }
+
+
     }
 }
