@@ -46,15 +46,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayList<Link> al = new ArrayList<>();
-        al.add(new Link(101, "https://a0b0", 3, new Date(2014, 1, 1)));
-        al.add(new Link(105, "https://a1b1", 1, new Date(2017, 7, 7)));
-        al.add(new Link(103, "https://a2b2", 2, new Date(2010, 9, 23)));
-        al.add(new Link(102, "https://a2b2", 1, new Date(2016, 9, 25)));
-        al.add(new Link(104, "https://a1b1", 3, new Date(2016, 7, 7)));
-        SortLinks sl1 = new SortLinks(al, false);
-        SortLinks sl2 = new SortLinks(al, true);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
