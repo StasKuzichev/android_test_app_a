@@ -21,6 +21,8 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
+
 
 public class SecondTab extends Fragment {
     private ArrayList<Link> links = new ArrayList<>();
@@ -87,14 +89,12 @@ public class SecondTab extends Fragment {
 
     private void setInitialData() {
 
-        links.add(new Link(1, "11111", 1));
+        links.add(new Link(1, "11111", 0));
         links.add(new Link(2, "22222", 2));
-        links.add(new Link(3, "00000", 0));
-        links.add(new Link(4, "google", 0));
-        links.add(new Link(5, "google", 1));
-        links.add(new Link(6, "google", 0));
-        links.add(new Link(7, "google", 0));
-        links.add(new Link(8, "google", 2));
+        links.add(new Link(3, "00000",2));
+        links.add(new Link(5, "google2", 1));
+        links.add(new Link(6, "google3", 1));
+        links.add(new Link(7, "google4", 0));
 
     }
 }
