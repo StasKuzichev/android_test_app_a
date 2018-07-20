@@ -16,9 +16,9 @@ public class Link {
         this.date = new Date();
     }
 
-    public String toString() {
-        return "\n" + this.id + " " + this.url + " " + this.status + " " + this.date;
-    }
+//    public String toString() {
+//        return "\n" + this.id + " " + this.url + " " + this.status + " " + this.date;
+//    }
 
     public int getId() {
         return this.id;

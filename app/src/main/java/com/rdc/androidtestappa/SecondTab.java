@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -18,9 +19,11 @@ import android.support.v7.app.AppCompatActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SecondTab extends Fragment {
     private ArrayList<Link> links = new ArrayList<>();
+    DataAdapter adapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,10 +44,32 @@ public class SecondTab extends Fragment {
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(llm);
         setInitialData();
-        DataAdapter adapter = new DataAdapter(getActivity(), links);
+        adapter = new DataAdapter(getActivity(), links);
         recyclerView.setAdapter(adapter);
 
         return rootView;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_sortByDate) {
+            return true;
+        }
+        if (id == R.id.action_sortByStatus) {
+            Link[] linksArray = new Link[links.size()];
+            linksArray = links.toArray(linksArray);
+            Arrays.sort(linksArray,new ComparatorByStatus());
+            links.clear();
+            links.addAll(Arrays.asList(linksArray));
+            adapter.notifyDataSetChanged();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -55,21 +80,25 @@ public class SecondTab extends Fragment {
 
     private void setInitialData() {
 
-        links.add(new Link(1, "google", 0));
-        links.add(new Link(2, "google", 0));
-        links.add(new Link(3, "google", 0));
+        links.add(new Link(1, "11111", 1));
+        links.add(new Link(2, "22222", 2));
+        links.add(new Link(3, "00000", 0));
         links.add(new Link(4, "google", 0));
-        links.add(new Link(5, "google", 0));
-        links.add(new Link(6, "google", 0));
-        links.add(new Link(7, "google", 0));
-        links.add(new Link(8, "google", 0));
-        links.add(new Link(9, "google", 0));
-        links.add(new Link(10, "google", 0));
+//        links.add(new Link(5, "google", 1));
+//        links.add(new Link(6, "google", 0));
+//        links.add(new Link(7, "google", 0));
+//        links.add(new Link(8, "google", 2));
+//        links.add(new Link(9, "google", 0));
+//        links.add(new Link(10, "google", 0));
     }
 
-    public ArrayList getLinks() {
-        return this.links;
-    }
+//    public ArrayList getLinks() {
+//        return this.links;
+//    }
+//
+//    public ArrayList setLinks(ArrayList links) {
+//        return this.links = links;
+//    }
 
 
 }
