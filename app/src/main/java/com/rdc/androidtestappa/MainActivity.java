@@ -69,7 +69,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-       
+        Button buttonURL = findViewById(R.id.buttonOk);
+        buttonURL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textURL = findViewById(R.id.editText);
+                Intent intentURL = new Intent();
+                intentURL.setComponent(new ComponentName("com.rdc.android_test_app_b", "com.rdc.android_test_app_b.MainActivity"));
+                intentURL.putExtra("url", textURL.getText().toString());
+                intentURL.putExtra("bool", true);
+                startActivity(intentURL);
+            }
+        });
 
     }
 
