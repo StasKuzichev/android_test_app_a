@@ -1,5 +1,6 @@
 package com.rdc.androidtestappa;
 
+
 import android.content.ComponentName;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
@@ -7,7 +8,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -18,13 +18,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+
+
 public class MainActivity extends AppCompatActivity {
-    EditText textURL;
+
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -69,18 +71,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button buttonURL = findViewById(R.id.buttonOk);
-        buttonURL.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                textURL = findViewById(R.id.editText);
-                Intent intentURL = new Intent();
-                intentURL.setComponent(new ComponentName("com.rdc.android_test_app_b", "com.rdc.android_test_app_b.MainActivity"));
-                intentURL.putExtra("url", textURL.getText().toString());
-                intentURL.putExtra("bool", true);
-                startActivity(intentURL);
-            }
-        });
+
 
     }
 
@@ -136,6 +127,18 @@ public class MainActivity extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            Button buttonURL = rootView.findViewById(R.id.buttonOk);
+            final EditText textURL = rootView.findViewById(R.id.editText);
+            buttonURL.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intentURL = new Intent();
+                    intentURL.setComponent(new ComponentName("com.rdc.android_test_app_b", "com.rdc.android_test_app_b.MainActivity"));
+                    intentURL.putExtra("url", textURL.getText().toString());
+                    intentURL.putExtra("bool", true);
+                    startActivity(intentURL);
+                }
+            });
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
             textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             return rootView;
