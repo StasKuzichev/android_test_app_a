@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 public class FirstTab extends Fragment {
     EditText textURL;
@@ -17,7 +16,18 @@ public class FirstTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.tab_first, container, false);
-        
+        Button buttonURL = rootView.findViewById(R.id.buttonOK);
+        textURL = rootView.findViewById(R.id.editText);
+        buttonURL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentURL = new Intent();
+                intentURL.setComponent(new ComponentName("com.rdc.android_test_app_b", "com.rdc.android_test_app_b.MainActivity"));
+                intentURL.putExtra("url", textURL.getText().toString());
+                intentURL.putExtra("bool", true);
+                startActivity(intentURL);
+            }
+        });
         return rootView;
     }
 }
