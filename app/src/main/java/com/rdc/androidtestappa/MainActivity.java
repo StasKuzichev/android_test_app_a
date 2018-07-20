@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_sortByDate) {
             return true;
         }
 
@@ -140,14 +140,12 @@ public class MainActivity extends AppCompatActivity {
             // getItem is called to instantiate the fragment for the given page.
             switch (position) {
                 //it is not our tab
-//                case 0:
-//                    FirstTab firstTab = new FirstTab();
-//                    return firstTab;
-//                    break;
+                case 0:
+                    FirstTab firstTab = new FirstTab();
+                    return firstTab;
                 case 1:
                     SecondTab secondTab = new SecondTab();
                     return secondTab;
-                    break;
                 default :
                     return null;
             }
