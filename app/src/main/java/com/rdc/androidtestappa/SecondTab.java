@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -58,6 +59,12 @@ public class SecondTab extends Fragment {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_sortByDate) {
+            Link[] linksArray = new Link[links.size()];
+            linksArray = links.toArray(linksArray);
+            Arrays.sort(linksArray,new ComparatorByDate());
+            links.clear();
+            links.addAll(Arrays.asList(linksArray));
+            adapter.notifyDataSetChanged();
             return true;
         }
         if (id == R.id.action_sortByStatus) {
@@ -84,21 +91,10 @@ public class SecondTab extends Fragment {
         links.add(new Link(2, "22222", 2));
         links.add(new Link(3, "00000", 0));
         links.add(new Link(4, "google", 0));
-//        links.add(new Link(5, "google", 1));
-//        links.add(new Link(6, "google", 0));
-//        links.add(new Link(7, "google", 0));
-//        links.add(new Link(8, "google", 2));
-//        links.add(new Link(9, "google", 0));
-//        links.add(new Link(10, "google", 0));
+        links.add(new Link(5, "google", 1));
+        links.add(new Link(6, "google", 0));
+        links.add(new Link(7, "google", 0));
+        links.add(new Link(8, "google", 2));
+
     }
-
-//    public ArrayList getLinks() {
-//        return this.links;
-//    }
-//
-//    public ArrayList setLinks(ArrayList links) {
-//        return this.links = links;
-//    }
-
-
 }
