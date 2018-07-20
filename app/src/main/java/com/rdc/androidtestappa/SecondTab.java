@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.support.v7.app.AppCompatActivity;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class SecondTab extends Fragment {

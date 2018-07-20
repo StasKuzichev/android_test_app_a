@@ -7,11 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     private LayoutInflater inflater;
     private ArrayList<Link> links;
+    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
 
     DataAdapter(Context context, ArrayList<Link> links) {
         this.links = links;
@@ -27,8 +29,8 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(DataAdapter.ViewHolder holder, int position) {
         Link link = links.get(position);
-        holder.url.setText(link.getUrlLink());
-        holder.date.setText((link.getDateLink()).toString());
+        holder.urlText.setText(link.getUrlLink());
+        holder.dateText.setText(simpleDateFormat.format(link.getDateLink()));
     }
 
     @Override
@@ -37,11 +39,11 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        final TextView url, date;
+        final TextView urlText, dateText;
         ViewHolder(View view){
             super(view);
-            url = (TextView) view.findViewById(R.id.url);
-            date = (TextView) view.findViewById(R.id.date);
+            urlText = (TextView) view.findViewById(R.id.url);
+            dateText = (TextView) view.findViewById(R.id.date);
         }
     }
 }
