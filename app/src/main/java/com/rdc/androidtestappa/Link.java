@@ -27,4 +27,7 @@ public class Link {
     int getStatusLink() {
         return status;
     }
+    Date getDateLink(){
+        return date;
+    }
 }
