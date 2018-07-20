@@ -16,18 +16,18 @@ public class Link {
         this.date = new Date();
     }
 
-    int getIdLink() {
-        return id;
+    public int getIdLink() {
+        return this.id;
     }
 
-    String getUrlLink() {
-        return url;
+    public String getUrlLink() {
+        return this.url;
     }
 
-    int getStatusLink() {
-        return status;
+    public int getStatusLink() {
+        return this.status;
     }
-    Date getDateLink(){
-        return date;
+    public Date getDateLink(){
+        return this.date;
     }
 }
