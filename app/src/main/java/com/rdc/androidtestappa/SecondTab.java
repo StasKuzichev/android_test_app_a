@@ -8,6 +8,8 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -18,21 +20,22 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class SecondTab extends Fragment {
-    ArrayList<Link> links = new ArrayList<>();
+    private ArrayList<Link> links = new ArrayList<>();
 
-    //        @Override
-//        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                                 Bundle savedInstanceState) {
-//            View rootView = inflater.inflate(R.layout.second_tab_layout, container, false);
-//            return rootView;
-//        }
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setHasOptionsMenu(true);
+
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         //return super.onCreateView(inflater, container, savedInstanceState);
-        View rootView =
-                inflater.inflate(R.layout.second_tab_layout, container, false);
+        View rootView = inflater.inflate(R.layout.second_tab_layout, container, false);
 
         RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
@@ -44,6 +47,11 @@ public class SecondTab extends Fragment {
         return rootView;
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_main, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
 
     private void setInitialData() {
 
@@ -57,8 +65,11 @@ public class SecondTab extends Fragment {
         links.add(new Link(8, "google", 0));
         links.add(new Link(9, "google", 0));
         links.add(new Link(10, "google", 0));
-
-
     }
+
+    public ArrayList getLinks() {
+        return this.links;
+    }
+
 
 }

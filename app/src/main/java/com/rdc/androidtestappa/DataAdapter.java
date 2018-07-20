@@ -29,8 +29,8 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(DataAdapter.ViewHolder holder, int position) {
         Link link = links.get(position);
-        holder.urlText.setText(link.getUrlLink());
-        holder.dateText.setText(simpleDateFormat.format(link.getDateLink()));
+        holder.urlText.setText(link.getUrl());
+        holder.dateText.setText(simpleDateFormat.format(link.getDate()));
     }
 
     @Override
