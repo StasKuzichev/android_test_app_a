@@ -1,41 +1,58 @@
 package com.rdc.androidtestappa;
 
+import android.graphics.Color;
 import java.util.Date;
 
-public class Link implements Comparable{								//модель ссылки
-    private int id, status;
+public class Link {
+    private int id;
+    private int status;
     private String url;
     private Date date;
 
-    Link(int id, String url, int status, Date date){			    //присваивание параметров
+    Link(int id, String url, int status) {
+        this.id = id;
+        this.status = status;
+        this.url = url;
+        this.date = new Date();
+    }
+
+    Link(int id, String url, int status, Date date) {
         this.id = id;
         this.status = status;
         this.url = url;
         this.date = date;
     }
-    public int compareTo(Object obj) {								    //переопределение для сортировки по статусу ссылки
-        int result = this.status - ((Link)obj).status;
-        if(result!=0) {
-            return result;
-        }
-        else {
-            return 1;
-        }
-    }
-    public String toString() {
-        return "\n" + this.id + " " + this.url + " " + this.status + " " + this.date;
-    }
-    public int GetID() {												//Геттер id
+
+    public int getId() {
         return this.id;
     }
-    public int GetStatus() {											//Геттер статуса
+
+    public int getStatus() {
         return this.status;
     }
-    public String GetURL() {											//Геттер ссылки
+
+    public String getUrl() {
         return this.url;
     }
-    public Date GetDate() {										//Геттер даты/времени
+
+    public Date getDate() {
         return this.date;
     }
-}
 
+    public int getStatusColor() {
+        int color = Color.parseColor("white");
+        switch (this.status) {
+            case 0:
+                color = Color.parseColor("green");
+                break;
+            case 1:
+                color = Color.parseColor("red");
+                break;
+            case 2:
+                color = Color.parseColor("grey");
+                break;
+        }
+
+        return color;
+    }
+}

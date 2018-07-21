@@ -1,9 +1,9 @@
 package com.rdc.androidtestappa;
 
+import android.support.v4.app.Fragment;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +20,8 @@ public class FirstTab extends Fragment {
     String href;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater,
+                             ViewGroup container,
                              final Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.tab_first, container, false);
         btnOk = rootView.findViewById(R.id.buttonOk);
@@ -54,4 +55,3 @@ public class FirstTab extends Fragment {
     }
 
 }
-
