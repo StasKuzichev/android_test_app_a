@@ -39,7 +39,7 @@ public class FirstTab extends Fragment {
                 } else if (URLUtil.isValidUrl(href)) {
                     Intent intentURL = new Intent();
                     intentURL.setComponent(new ComponentName("com.rdc.android_test_app_b", "com.rdc.android_test_app_b.MainActivity"));
-                    intentURL.putExtra("url", href);
+                    intentURL.putExtra("url_from_A", href);
                     intentURL.putExtra("bool", true);
                     startActivity(intentURL);
                     inputLink.setText("");
