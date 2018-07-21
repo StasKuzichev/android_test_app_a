@@ -13,13 +13,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
-
 public class FirstTab extends Fragment {
     TextView text;
     EditText inputLink;
     Button btnOk;
     String href;
+
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container,
@@ -33,13 +32,11 @@ public class FirstTab extends Fragment {
 
                 href = inputLink.getText().toString();
 
-                if (inputLink.getText().toString().isEmpty() || href.trim().length() == 0)//FULL EMPTYNESS
-                {
+                if (inputLink.getText().toString().isEmpty() || href.trim().length() == 0){//FULL EMPTYNESS
                     Toast.makeText(getContext(), R.string.my_error, Toast.LENGTH_SHORT).show();
                     inputLink.setText("");
 
-                }
-                else if (URLUtil.isValidUrl(href)) {
+                } else if (URLUtil.isValidUrl(href)) {
                     Intent intentURL = new Intent();
                     intentURL.setComponent(new ComponentName("com.rdc.android_test_app_b", "com.rdc.android_test_app_b.MainActivity"));
                     intentURL.putExtra("url", href);
@@ -47,15 +44,12 @@ public class FirstTab extends Fragment {
                     startActivity(intentURL);
                     inputLink.setText("");
 
-                }
-                else if (!URLUtil.isValidUrl(href)) {
+                } else if (!URLUtil.isValidUrl(href)) {
                     Toast.makeText(getContext(), R.string.format, Toast.LENGTH_SHORT).show();
                     inputLink.setText("");
 
                 }
-
             }
-
         });
         return rootView;
     }

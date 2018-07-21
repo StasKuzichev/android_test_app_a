@@ -1,7 +1,6 @@
 package com.rdc.androidtestappa;
 
 import android.graphics.Color;
-
 import java.util.Date;
 
 public class Link {
