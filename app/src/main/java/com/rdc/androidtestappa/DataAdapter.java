@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     private LayoutInflater inflater;
     private ArrayList<Link> links;
+    private String check;
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
 
     DataAdapter(Context context, ArrayList<Link> links) {
@@ -31,7 +32,13 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(DataAdapter.ViewHolder holder, int position) {
         Link link = links.get(position);
-        holder.urlText.setText(link.getUrl());
+        if(link.getUrl().length()>48){
+            check = link.getUrl().substring(0,48)+"...";
+        }
+        else{
+            check=link.getUrl();
+        }
+        holder.urlText.setText(check);
         holder.dateText.setText(simpleDateFormat.format(link.getDate()));
         holder.rowLinearLayout.setBackgroundColor(link.getStatusColor());
     }

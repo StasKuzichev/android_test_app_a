@@ -1,43 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
+    style="@style/MatchMatch"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <Button
+        style="@style/ButtonOk"
         android:id="@+id/buttonOk"
-        android:layout_width="216dp"
-        android:layout_height="72dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="209dp"
-        android:text="@string/buttonOk"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="166dp" />
 
     <TextView
+        style="@style/TextViewEnter"
         android:id="@+id/textView"
-        android:layout_width="215dp"
-        android:layout_height="37dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="79dp"
-        android:text="@string/textEnter"
-        android:textSize="45px"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="25dp" />
 
     <EditText
+        style="@style/EditTextInput"
         android:id="@+id/inputText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="136dp"
-        android:ems="10"
         android:hint="https://"
-        android:inputType="textPersonName"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="90dp" />
 </RelativeLayout>
