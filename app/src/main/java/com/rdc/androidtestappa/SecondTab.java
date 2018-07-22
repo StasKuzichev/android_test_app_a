@@ -24,7 +24,7 @@ import java.util.Arrays;
 import java.util.Date;
 
 
-public class SecondTab extends Fragment {
+public class SecondTab extends Fragment implements ItemClickListener{
     private ArrayList<Link> links = new ArrayList<>();
     DataAdapter adapter;
 
@@ -48,6 +48,7 @@ public class SecondTab extends Fragment {
         recyclerView.setLayoutManager(llm);
         setInitialData();
         adapter = new DataAdapter(getActivity(), links);
+        adapter.setListener(this);
         recyclerView.setAdapter(adapter);
 
         return rootView;
@@ -95,6 +96,19 @@ public class SecondTab extends Fragment {
         links.add(new Link(5, "google2", 1));
         links.add(new Link(6, "google3", 1));
         links.add(new Link(7, "google4", 0));
+        links.add(new Link(8, "http://ptolmachev.ru/wp-content/uploads/2017/02/%D0%A1%D0%B8%D0%BC%D0%BF%D1%81%D0%BD%D1%8B.jpg", 0));
+
+    }
+
+
+
+    @Override
+    public void onItemClick(int position) {
+        Intent intentURL = new Intent();
+        intentURL.setComponent(new ComponentName("com.rdc.android_test_app_b", "com.rdc.android_test_app_b.MainActivity"));
+        intentURL.putExtra("url_from_A", links.get(position).getUrl());
+        intentURL.putExtra("bool", true);
+        startActivity(intentURL);
 
     }
 }
