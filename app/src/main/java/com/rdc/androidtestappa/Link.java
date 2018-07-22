@@ -40,16 +40,16 @@ public class Link {
     }
 
     public int getStatusColor() {
-        int color = Color.parseColor("#FFFFFFFF");
+        int color = Color.parseColor("white");
         switch (this.status) {
             case 0:
-                color = Color.parseColor("#6664DD17");
+                color = Color.parseColor("green");
                 break;
             case 1:
-                color = Color.parseColor("#9DEF0407");
+                color = Color.parseColor("red");
                 break;
             case 2:
-                color = Color.parseColor("#FF6C8996");
+                color = Color.parseColor("grey");
                 break;
         }
 

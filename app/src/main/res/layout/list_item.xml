@@ -1,20 +1,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/MatchWrap"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="0dp">
 
     <LinearLayout
-        style="@style/MatchWrap"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/linear_layout"
-        android:orientation="vertical">
+        android:background="@drawable/border">
 
         <TextView
-            style="@style/TextViewUrl"
-            android:id="@+id/url" />
+            android:id="@+id/url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"  />
 
         <TextView
-            style="@style/TextViewDate"
-            android:id="@+id/date" />
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 </LinearLayout>
