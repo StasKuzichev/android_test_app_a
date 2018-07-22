@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -17,6 +18,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     private ArrayList<Link> links;
     private String check;
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
+    private ItemClickListener mClickListener;
 
     DataAdapter(Context context, ArrayList<Link> links) {
         this.links = links;
@@ -48,7 +50,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
         return links.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         final TextView urlText, dateText;
         LinearLayout rowLinearLayout;
         ViewHolder(View view){
@@ -56,6 +58,20 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
             urlText = (TextView) view.findViewById(R.id.url);
             dateText = (TextView) view.findViewById(R.id.date);
             rowLinearLayout = (LinearLayout) view.findViewById(R.id.linear_layout);
+            itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View view) {
+            if (mClickListener != null) {
+                mClickListener.onItemClick(getAdapterPosition());
+            }
+        }
+
+
+    }
+
+    public void setListener(ItemClickListener itemClickListener) {
+        mClickListener = itemClickListener;
     }
 }
