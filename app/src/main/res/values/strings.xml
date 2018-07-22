@@ -7,6 +7,7 @@
     <string name="buttonOk">OK</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="edit_text_hint">https://</string>
 
 <!--Strings for app_valid_a-->
 

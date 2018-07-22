@@ -19,7 +19,7 @@
     <EditText
         style="@style/EditTextInput"
         android:id="@+id/inputText"
-        android:hint="https://"
+        android:hint="@string/edit_text_hint"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="90dp" />
 </RelativeLayout>
