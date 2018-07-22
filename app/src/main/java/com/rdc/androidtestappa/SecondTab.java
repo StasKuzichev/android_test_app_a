@@ -42,8 +42,8 @@ public class SecondTab extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         //return super.onCreateView(inflater, container, savedInstanceState);
         View rootView = inflater.inflate(R.layout.second_tab_layout, container, false);
-
         RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
+        recyclerView.addItemDecoration(new SimpleDividerItemDecoration(getActivity()));
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(llm);
         setInitialData();
