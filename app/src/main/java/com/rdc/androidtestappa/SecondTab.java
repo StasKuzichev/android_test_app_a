@@ -1,5 +1,7 @@
 package com.rdc.androidtestappa;
 
+import android.content.ComponentName;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -20,6 +22,7 @@ import java.util.Comparator;
 public class SecondTab extends Fragment implements ItemClickListener{
     private ArrayList<Link> links = new ArrayList<>();
     DataAdapter adapter;
+    public static final String TAB_NAME = "history";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -83,14 +86,13 @@ public class SecondTab extends Fragment implements ItemClickListener{
 
     }
 
-
-
     @Override
     public void onItemClick(int position) {
         Intent intentURL = new Intent();
         intentURL.setComponent(new ComponentName("com.rdc.android_test_app_b", "com.rdc.android_test_app_b.MainActivity"));
-        intentURL.putExtra("url_from_A", links.get(position).getUrl());
+        intentURL.putExtra("url", links.get(position).getUrl());
         intentURL.putExtra("bool", true);
+        intentURL.putExtra("type", TAB_NAME);
         startActivity(intentURL);
 
     }

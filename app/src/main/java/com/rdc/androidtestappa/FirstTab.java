@@ -18,6 +18,7 @@ public class FirstTab extends Fragment {
     EditText inputLink;
     Button btnOk;
     String href;
+    public static final String TAB_NAME = "test";
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -41,6 +42,7 @@ public class FirstTab extends Fragment {
                     intentURL.setComponent(new ComponentName("com.rdc.android_test_app_b", "com.rdc.android_test_app_b.MainActivity"));
                     intentURL.putExtra("url", href);
                     intentURL.putExtra("bool", true);
+                    intentURL.putExtra("type", TAB_NAME);
                     startActivity(intentURL);
                     inputLink.setText("");
 
