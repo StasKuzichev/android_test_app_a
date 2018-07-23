@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/CoordinatorLayout"
     android:id="@+id/main_content"
-    tools:context=".MainActivity">
+    tools:context=".domain.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         style="@style/AppBarLayout"

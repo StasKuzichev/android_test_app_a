@@ -1,4 +1,4 @@
-package com.rdc.androidtestappa;
+package com.rdc.androidtestappa.domain.history;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -6,7 +6,9 @@ import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-    public class SimpleDividerItemDecoration extends RecyclerView.ItemDecoration {
+import com.rdc.androidtestappa.R;
+
+public class SimpleDividerItemDecoration extends RecyclerView.ItemDecoration {
         private Drawable mDivider;
 
         public SimpleDividerItemDecoration(Context context) {

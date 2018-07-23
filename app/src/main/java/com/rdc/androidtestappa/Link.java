@@ -9,14 +9,14 @@ public class Link {
     private String url;
     private Date date;
 
-    Link(int id, String url, int status) {
+    public Link(int id, String url, int status) {
         this.id = id;
         this.status = status;
         this.url = url;
         this.date = new Date();
     }
 
-    Link(int id, String url, int status, Date date) {
+    public Link(int id, String url, int status, Date date) {
         this.id = id;
         this.status = status;
         this.url = url;

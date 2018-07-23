@@ -1,14 +1,15 @@
-package com.rdc.androidtestappa;
+package com.rdc.androidtestappa.domain.history;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.rdc.androidtestappa.Link;
+import com.rdc.androidtestappa.R;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
     private ItemClickListener mClickListener;
 
-    DataAdapter(Context context, ArrayList<Link> links) {
+    public DataAdapter(Context context, ArrayList<Link> links) {
         this.links = links;
         this.inflater = LayoutInflater.from(context);
     }

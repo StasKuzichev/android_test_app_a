@@ -1,4 +1,6 @@
-package com.rdc.androidtestappa;
+package com.rdc.androidtestappa.utils;
+
+import com.rdc.androidtestappa.Link;
 
 import java.util.Comparator;
 
