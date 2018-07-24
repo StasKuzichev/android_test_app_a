@@ -15,7 +15,7 @@ public class LinksAdapterBase extends BaseQuickAdapter<Link, BaseViewHolder> imp
     private final OnLinkClickListener onLinkClickListener;
 
     LinksAdapterBase(@NonNull OnLinkClickListener onLinkClickListener) {
-        super(R.layout.list_item);
+        super(R.layout.link_list);
         this.onLinkClickListener = onLinkClickListener;
     }
 

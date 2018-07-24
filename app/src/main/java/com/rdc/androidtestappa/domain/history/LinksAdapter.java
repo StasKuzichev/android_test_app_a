@@ -30,7 +30,7 @@ public class LinksAdapter extends RecyclerView.Adapter<LinksAdapter.ViewHolder> 
     @Override
     public LinksAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = inflater.inflate(R.layout.list_item, parent, false);
+        View view = inflater.inflate(R.layout.link_list, parent, false);
         return new ViewHolder(view);
     }
 

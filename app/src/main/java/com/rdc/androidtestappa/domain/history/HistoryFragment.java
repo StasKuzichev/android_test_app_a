@@ -29,7 +29,7 @@ public class HistoryFragment extends Fragment implements HistoryContract.View,
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.history_tab, container, false);
+        return inflater.inflate(R.layout.history_fragment, container, false);
     }
 
     @Override

@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.rdc.androidtestappa.R;
@@ -26,7 +25,7 @@ public class TestFragment extends Fragment implements TestContract.View {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container,
                              final Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.test_tab, container, false);
+        return inflater.inflate(R.layout.test_fragment, container, false);
     }
 
     @Override
