@@ -4,19 +4,19 @@ import android.graphics.Color;
 import java.util.Date;
 
 public class Link {
-    private int id;
-    private int status;
-    private String url;
-    private Date date;
+    private final int id;
+    private final int status;
+    private final String url;
+    private final Date date;
 
-    Link(int id, String url, int status) {
+    public Link(int id, String url, int status) {
         this.id = id;
         this.status = status;
         this.url = url;
         this.date = new Date();
     }
 
-    Link(int id, String url, int status, Date date) {
+    public Link(int id, String url, int status, Date date) {
         this.id = id;
         this.status = status;
         this.url = url;
