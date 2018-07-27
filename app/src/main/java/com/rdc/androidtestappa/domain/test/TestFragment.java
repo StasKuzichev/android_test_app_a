@@ -38,7 +38,7 @@ public class TestFragment extends Fragment implements TestContract.View {
         buttonOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                testPresenter.handleOkButtonClick(String.valueOf(inputLink.getText()));
+                testPresenter.handleOkButtonClick(inputLink.getText().toString());
             }
         });
         testPresenter.setView(this);
@@ -62,6 +62,7 @@ public class TestFragment extends Fragment implements TestContract.View {
                 "com.rdc.android_test_app_b.MainActivity"));
         intentURL.putExtra("url", url);
         intentURL.putExtra("bool", true);
+        intentURL.putExtra("type", "edit");
         startActivity(intentURL);
         inputLink.setText("");
     }

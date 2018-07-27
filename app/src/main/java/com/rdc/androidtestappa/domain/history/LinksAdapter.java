@@ -55,7 +55,7 @@ public class LinksAdapter extends RecyclerView.Adapter<LinksAdapter.ViewHolder> 
     @Override
     public void onClick(View view) {
         int position = (int) view.getTag();
-        if(mClickListener==null)return;
+        if (mClickListener == null) return;
         mClickListener.onLinkClicked(links.get(position));
     }
 
@@ -82,7 +82,7 @@ public class LinksAdapter extends RecyclerView.Adapter<LinksAdapter.ViewHolder> 
         mClickListener = itemClickListener;
     }
 
-    public interface OnLinkClickListener{
+    public interface OnLinkClickListener {
         void onLinkClicked(Link link);
     }
 }

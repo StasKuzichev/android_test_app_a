@@ -1,14 +1,7 @@
 package com.rdc.androidtestappa.domain.test;
 
-import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.webkit.URLUtil;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.rdc.androidtestappa.R;
 
 public class TestPresenter implements TestContract.Presenter {
 
@@ -19,7 +12,7 @@ public class TestPresenter implements TestContract.Presenter {
         this.view = view;
     }
 
-    public void handleOkButtonClick( String url) {
+    public void handleOkButtonClick(String url) {
         url = url.trim();
         if (TextUtils.isEmpty(url)) {
             view.showEmptyFieldError();

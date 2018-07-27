@@ -78,8 +78,9 @@ public class HistoryFragment extends Fragment implements HistoryContract.View,
                 "com.rdc.android_test_app_b",
                 "com.rdc.android_test_app_b.MainActivity")
         );
-        intentURL.putExtra("url_from_A", link.getUrl());
+        intentURL.putExtra("url", link.getUrl());
         intentURL.putExtra("bool", true);
+        intentURL.putExtra("type", "history");
         startActivity(intentURL);
     }
 }

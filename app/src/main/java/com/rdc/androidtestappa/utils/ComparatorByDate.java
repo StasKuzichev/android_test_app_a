@@ -6,7 +6,7 @@ import java.util.Comparator;
 
 public class ComparatorByDate implements Comparator<Link> {
     @Override
-    public int compare(Link link , Link t1) {
-        return link.getDate().compareTo(t1.getDate());
+    public int compare(Link linkFirst , Link linkSecond) {
+        return linkFirst.getDate().compareTo(linkSecond.getDate());
     }
 }

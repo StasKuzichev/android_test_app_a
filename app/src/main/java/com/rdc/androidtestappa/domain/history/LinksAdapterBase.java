@@ -21,7 +21,8 @@ public class LinksAdapterBase extends BaseQuickAdapter<Link, BaseViewHolder> imp
 
     @Override
     protected void convert(BaseViewHolder helper, Link item) {
-        helper.setText(R.id.url, item.getUrl().length() > 48 ? item.getUrl().substring(0, 48) + "..." : item.getUrl())
+        helper.setText(R.id.url, item.getUrl().length() > 48 ? item.getUrl().substring(0, 48)
+                + "..." : item.getUrl())
                 .setText(R.id.date, simpleDateFormat.format(item.getDate()))
                 .setBackgroundColor(R.id.linear_layout, item.getStatusColor());
         helper.itemView.setTag(helper.getAdapterPosition());
