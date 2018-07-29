@@ -1,12 +1,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/MatchWrap"
-    android:orientation="horizontal"
-    android:padding="0dp">
+    style="@style/MatchWrapHorLinear">
 
     <LinearLayout
-        style="@style/MatchWrap"
-        android:id="@+id/linear_layout"
-        android:orientation="vertical">
+        style="@style/MatchWrapVerLinear"
+        android:id="@+id/linear_layout">
 
         <TextView
             style="@style/TextViewUrl"

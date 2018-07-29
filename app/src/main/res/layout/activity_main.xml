@@ -1,44 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/CoordinatorLayout"
     android:id="@+id/main_content"
-    tools:context=".MainActivity">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".domain.MainActivity">
 
-    <android.support.design.widget.AppBarLayout
-        style="@style/AppBarLayout"
-        android:id="@+id/appbar">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/Toolbar"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:title="@string/app_name" />
 
-        <android.support.v7.widget.Toolbar
-            style="@style/Toolbar"
-            android:id="@+id/toolbar"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:title="@string/app_name">
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        </android.support.v7.widget.Toolbar>
+        <android.support.design.widget.TabItem
+            android:id="@+id/tabItem"
+            style="@style/WrapWrap"
+            android:text="@string/tab_text_1" />
 
-        <android.support.design.widget.TabLayout
-            style="@style/MatchMatch"
-            android:id="@+id/tabs">
+        <android.support.design.widget.TabItem
+            android:id="@+id/tabItem2"
+            style="@style/WrapWrap"
+            android:text="@string/tab_text_2" />
 
-            <android.support.design.widget.TabItem
-                style="@style/WrapWrap"
-                android:id="@+id/tabItem"
-                android:text="@string/tab_text_1" />
-
-            <android.support.design.widget.TabItem
-                style="@style/WrapWrap"
-                android:id="@+id/tabItem2"
-                android:text="@string/tab_text_2"
-                />
-
-
-        </android.support.design.widget.TabLayout>
-    </android.support.design.widget.AppBarLayout>
+    </android.support.design.widget.TabLayout>
 
     <android.support.v4.view.ViewPager
-        style="@style/MatchMatch"
-        android:id="@+id/container" />
+        android:id="@+id/container"
+        style="@style/MatchMatch" />
 
-</android.support.design.widget.CoordinatorLayout>
+</LinearLayout>

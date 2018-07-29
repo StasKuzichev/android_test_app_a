@@ -29,71 +29,79 @@
     </style>
 
     <style name="TopHorizTrueTrue">
-        <item name = "android:layout_alignParentTop">true</item>
-        <item name = "android:layout_centerHorizontal">true</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
     </style>
 
-    <style name="TopHorizTrueTrueWrapWrap" parent = "TopHorizTrueTrue">
+    <style name="TopHorizTrueTrueWrapWrap" parent="TopHorizTrueTrue">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
 
     <style name="RecycleView">
-        <item name ="android:layout_width">0dp</item>
-        <item name ="android:layout_height">0dp</item>
-        <item name ="android:layout_marginBottom">0dp</item>
-        <item name ="android:layout_marginEnd">0dp</item>
-        <item name ="android:layout_marginStart">0dp</item>
-        <item name ="android:layout_marginTop">110dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:layout_marginEnd">0dp</item>
+        <item name="android:layout_marginStart">0dp</item>
+        <item name="android:layout_marginTop">110dp</item>
     </style>
 
     <style name="TextViewUrl" parent="MatchMatch">
-        <item name ="android:paddingLeft">16dp</item>
-        <item name ="android:paddingTop">5dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingTop">5dp</item>
     </style>
 
     <style name="TextViewDate" parent="MatchMatch">
-        <item name ="android:paddingBottom">5dp</item>
-        <item name ="android:paddingLeft">16dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingLeft">16dp</item>
     </style>
 
     <style name="ButtonOk" parent="TopHorizTrueTrue">
-        <item name ="android:layout_width">216dp</item>
-        <item name ="android:layout_height">72dp</item>
-        <item name ="android:layout_marginTop">209dp</item>
-        <item name ="android:text">@string/buttonOk</item>
+        <item name="android:layout_width">216dp</item>
+        <item name="android:layout_height">72dp</item>
+        <item name="android:layout_marginTop">209dp</item>
+        <item name="android:text">@string/buttonOk</item>
     </style>
 
     <style name="TextViewEnter" parent="TopHorizTrueTrue">
-        <item name ="android:layout_width">215dp</item>
-        <item name ="android:layout_height">37dp</item>
-        <item name ="android:layout_marginTop">79dp</item>
-        <item name ="android:text">@string/textEnter</item>
-        <item name ="android:textSize">45px</item>
+        <item name="android:layout_width">215dp</item>
+        <item name="android:layout_height">37dp</item>
+        <item name="android:layout_marginTop">79dp</item>
+        <item name="android:text">@string/textEnter</item>
+        <item name="android:textSize">45px</item>
     </style>
 
     <style name="EditTextInput" parent="TopHorizTrueTrueWrapWrap">
-        <item name ="android:layout_marginTop">136dp</item>
-        <item name ="android:ems">10</item>
-        <item name ="android:inputType">textPersonName</item>
+        <item name="android:layout_marginTop">136dp</item>
+        <item name="android:ems">10</item>
+        <item name="android:inputType">textPersonName</item>
     </style>
 
     <style name="AppBarLayout" parent="MatchWrap">
-        <item name ="android:paddingTop">@dimen/appbar_padding_top</item>
-        <item name ="android:theme">@style/AppTheme.AppBarOverlay</item>
+        <item name="android:paddingTop">@dimen/appbar_padding_top</item>
+        <item name="android:theme">@style/AppTheme.AppBarOverlay</item>
     </style>
 
     <style name="Toolbar">
-        <item name ="android:layout_width">match_parent</item>
-        <item name ="android:layout_height">?attr/actionBarSize</item>
-        <item name ="android:layout_weight">1</item>
-        <item name ="android:background">?attr/colorPrimary</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">?attr/colorPrimary</item>
     </style>
 
     <style name="CoordinatorLayout" parent="MatchMatch">
-        <item name ="android:fitsSystemWindows">true</item>
+        <item name="android:fitsSystemWindows">true</item>
     </style>
-    
+
+    <style name="MatchWrapHorLinear" parent="MatchWrap">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:padding">0dp</item>
+    </style>
+
+    <style name="MatchWrapVerLinear" parent="MatchWrap">
+        <item name="android:orientation">vertical</item>
+    </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
