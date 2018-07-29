@@ -7,6 +7,8 @@ public interface TestContract {
         void showEmptyFieldError();
 
         void showWrongUrlFormatError();
+
+        void savePerson(String url, int status, String date);
     }
 
     interface Presenter {

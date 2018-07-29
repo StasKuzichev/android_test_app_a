@@ -15,16 +15,31 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LinksAdapter extends RecyclerView.Adapter<LinksAdapter.ViewHolder> implements View.OnClickListener {
+public class LinksAdapter extends RecyclerView.Adapter<LinksAdapter.ViewHolder> {
     private LayoutInflater inflater;
     private List<Link> links;
     private String check;
-    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
-    private OnLinkClickListener mClickListener;
+    private ItemClickListener itemClickListener;
 
-    public LinksAdapter(Context context) {
+   // private OnLinkClickListener mClickListener;
+    private Context context;
+    private RecyclerView recyclerView;
+
+   /* public LinksAdapter(Context context) {
         this.links = new ArrayList<>();
         this.inflater = LayoutInflater.from(context);
+    }*/
+
+    public LinksAdapter(Context context, List<Link> links) {
+        this.context = context;
+        this.links = links;
+    }
+
+    public LinksAdapter(List<Link> links, Context context, RecyclerView recyclerView) {
+        this.inflater = LayoutInflater.from(context);
+        this.links = links;
+        this.context = context;
+        this.recyclerView = recyclerView;
     }
 
     @Override
@@ -33,6 +48,7 @@ public class LinksAdapter extends RecyclerView.Adapter<LinksAdapter.ViewHolder> 
         View view = inflater.inflate(R.layout.link_list, parent, false);
         return new ViewHolder(view);
     }
+
 
     @Override
     public void onBindViewHolder(LinksAdapter.ViewHolder holder, int position) {
@@ -43,7 +59,7 @@ public class LinksAdapter extends RecyclerView.Adapter<LinksAdapter.ViewHolder> 
             check = link.getUrl();
         }
         holder.urlText.setText(check);
-        holder.dateText.setText(simpleDateFormat.format(link.getDate()));
+        holder.dateText.setText(link.getDate());
         holder.rowLinearLayout.setBackgroundColor(link.getStatusColor());
     }
 
@@ -52,37 +68,31 @@ public class LinksAdapter extends RecyclerView.Adapter<LinksAdapter.ViewHolder> 
         return links.size();
     }
 
-    @Override
-    public void onClick(View view) {
-        int position = (int) view.getTag();
-        if (mClickListener == null) return;
-        mClickListener.onLinkClicked(links.get(position));
-    }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         final TextView urlText, dateText;
         LinearLayout rowLinearLayout;
-
-        ViewHolder(View view) {
+        ViewHolder(View view){
             super(view);
             urlText = (TextView) view.findViewById(R.id.url);
             dateText = (TextView) view.findViewById(R.id.date);
             rowLinearLayout = (LinearLayout) view.findViewById(R.id.linear_layout);
-            itemView.setTag(getAdapterPosition());
-            itemView.setOnClickListener(LinksAdapter.this);
+            itemView.setOnClickListener(this);
+        }
+        @Override
+        public void onClick(View view) {
+            if (itemClickListener != null) {
+                itemClickListener.onItemClick(getAdapterPosition());
+            }
         }
     }
 
+    public void setListener(ItemClickListener itemClickListener) {
+        this.itemClickListener = itemClickListener;
+    }
     public void setNewData(List<Link> newData) {
         links = newData;
         notifyDataSetChanged();
     }
 
-    public void setListener(OnLinkClickListener itemClickListener) {
-        mClickListener = itemClickListener;
-    }
-
-    public interface OnLinkClickListener {
-        void onLinkClicked(Link link);
-    }
 }

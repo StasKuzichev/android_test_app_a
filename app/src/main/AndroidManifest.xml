@@ -19,6 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:authorities="links.com.rdc.androidtestappa"
+            android:name=".LinksProvider"
+            android:exported="true"/>
     </application>
 
 </manifest>
