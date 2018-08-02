@@ -1,28 +1,12 @@
 package com.rdc.androidtestappa;
 
 import android.graphics.Color;
-import java.util.Date;
 
 public class Link {
     private long id;
     private int status;
     private String url;
     private String date;
-
-    public Link(long id, String url, int status, String date) {
-        this.id = id;
-        this.status = status;
-        this.url = url;
-        this.date = date;
-    }
-
-    public Link(String url, int status, String date) {
-        this.status = status;
-        this.url = url;
-        this.date = date;
-    }
-
-    public Link(){}
 
     public long getId() {
         return this.id;

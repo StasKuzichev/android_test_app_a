@@ -11,8 +11,6 @@ import android.widget.TextView;
 import com.rdc.androidtestappa.Link;
 import com.rdc.androidtestappa.R;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
 
 public class LinksAdapter extends RecyclerView.Adapter<LinksAdapter.ViewHolder> {
@@ -20,15 +18,8 @@ public class LinksAdapter extends RecyclerView.Adapter<LinksAdapter.ViewHolder> 
     private List<Link> links;
     private String check;
     private ItemClickListener itemClickListener;
-
-   // private OnLinkClickListener mClickListener;
     private Context context;
     private RecyclerView recyclerView;
-
-   /* public LinksAdapter(Context context) {
-        this.links = new ArrayList<>();
-        this.inflater = LayoutInflater.from(context);
-    }*/
 
     public LinksAdapter(Context context, List<Link> links) {
         this.context = context;
@@ -44,7 +35,6 @@ public class LinksAdapter extends RecyclerView.Adapter<LinksAdapter.ViewHolder> 
 
     @Override
     public LinksAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
         View view = inflater.inflate(R.layout.link_list, parent, false);
         return new ViewHolder(view);
     }

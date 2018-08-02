@@ -23,5 +23,4 @@ public class TestPresenter implements TestContract.Presenter {
         }
     }
 
-
 }

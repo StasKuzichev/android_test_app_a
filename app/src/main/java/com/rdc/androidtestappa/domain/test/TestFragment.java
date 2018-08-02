@@ -13,18 +13,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.rdc.androidtestappa.Link;
 import com.rdc.androidtestappa.R;
-import com.rdc.androidtestappa.db.LinkDBHelper;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class TestFragment extends Fragment implements TestContract.View {
-   private TestContract.Presenter testPresenter;
+    private TestContract.Presenter testPresenter;
+    private EditText inputLink;
+    private Button buttonOk;
 
-   private EditText inputLink;
-   private Button buttonOk;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container,
@@ -60,7 +55,7 @@ public class TestFragment extends Fragment implements TestContract.View {
         inputLink.setText("");
     }
 
-
+    @Override
     public void transmitToAppB(String url) {
         Intent intentURL = new Intent();
         intentURL.setComponent(new ComponentName("com.rdc.android_test_app_b",
@@ -73,12 +68,7 @@ public class TestFragment extends Fragment implements TestContract.View {
 
         startActivity(intentURL);
         inputLink.setText("");
-        //new TestFragment().getActivity().finish();
-    }
-
-
-
-
 
     }
 
+}

@@ -1,10 +1,7 @@
 package com.rdc.androidtestappa.domain.history;
 
-import android.app.Activity;
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -18,30 +15,26 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.rdc.androidtestappa.Link;
 import com.rdc.androidtestappa.R;
 import com.rdc.androidtestappa.db.LinkDBHelper;
-import com.rdc.androidtestappa.domain.MainActivity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class HistoryFragment extends Fragment implements HistoryContract.View, ItemClickListener {
     private LinksAdapter linksAdapter;
     private HistoryContract.Presenter historyPresenter;
     private LinkDBHelper linkDBHelper;
-    RecyclerView recyclerView;
+    private RecyclerView recyclerView;
     private String filter = "";
     private List<Link> newLinks;
-    Context context;
 
     @Override
     public void onResume() {
         super.onResume();
+        populateRecyclerView(filter);
     }
-
 
     @Nullable
     @Override
@@ -52,11 +45,9 @@ public class HistoryFragment extends Fragment implements HistoryContract.View, I
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-
         super.onViewCreated(view, savedInstanceState);
-
-        context = getActivity();
         setHasOptionsMenu(true);
+
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.hasFixedSize();
 
@@ -66,7 +57,7 @@ public class HistoryFragment extends Fragment implements HistoryContract.View, I
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(llm);
 
-        linksAdapter = new LinksAdapter(context, new HistoryPresenter().links);
+        linksAdapter = new LinksAdapter(getContext(), new HistoryPresenter().links);
         linksAdapter.setListener(this);
         recyclerView.setAdapter(linksAdapter);
 
@@ -83,13 +74,13 @@ public class HistoryFragment extends Fragment implements HistoryContract.View, I
         });
     }
 
+    @Override
     public void populateRecyclerView(String filter) {
         linkDBHelper = new LinkDBHelper(getContext());
-        linksAdapter = new LinksAdapter(linkDBHelper.linksList(filter), context, recyclerView);
+        linksAdapter = new LinksAdapter(linkDBHelper.linksList(filter), getContext(), recyclerView);
         linksAdapter.setListener(this);
         recyclerView.setAdapter(linksAdapter);
         newLinks = linkDBHelper.linksList(filter);
-
     }
 
 
@@ -138,7 +129,6 @@ public class HistoryFragment extends Fragment implements HistoryContract.View, I
         intentURL.putExtra("idLink", str);
         intentURL.putExtra("status", link.getStatus());
         startActivity(intentURL);
-        //new HistoryFragment().getActivity().finish();
 
     }
 

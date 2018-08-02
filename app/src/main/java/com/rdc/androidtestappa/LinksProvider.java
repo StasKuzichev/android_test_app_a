@@ -3,17 +3,13 @@ package com.rdc.androidtestappa;
 import android.content.ContentProvider;
 import android.content.ContentResolver;
 import android.content.ContentValues;
-import android.content.Intent;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
 
 import com.rdc.androidtestappa.db.LinkDBHelper;
-import com.rdc.androidtestappa.domain.history.HistoryFragment;
 
 public class LinksProvider extends ContentProvider {
     public static final String AUTHORITY = "links.com.rdc.androidtestappa";
@@ -108,7 +104,6 @@ public class LinksProvider extends ContentProvider {
     private int update(ContentValues contentValues, String whereCluase, String[] strings) {
         return linkDBHelper.update(contentValues, whereCluase, strings);
     }
-
 
     private Uri insertToDo(Uri uri, ContentValues contentValues) {
         long id = linkDBHelper.insert(contentValues);
