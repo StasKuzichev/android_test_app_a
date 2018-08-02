@@ -4,26 +4,27 @@ import android.graphics.Color;
 import java.util.Date;
 
 public class Link {
-    private int id;
+    private long id;
     private int status;
     private String url;
-    private Date date;
+    private String date;
 
-    Link(int id, String url, int status) {
-        this.id = id;
-        this.status = status;
-        this.url = url;
-        this.date = new Date();
-    }
-
-    Link(int id, String url, int status, Date date) {
+    public Link(long id, String url, int status, String date) {
         this.id = id;
         this.status = status;
         this.url = url;
         this.date = date;
     }
 
-    public int getId() {
+    public Link(String url, int status, String date) {
+        this.status = status;
+        this.url = url;
+        this.date = date;
+    }
+
+    public Link(){}
+
+    public long getId() {
         return this.id;
     }
 
@@ -35,7 +36,7 @@ public class Link {
         return this.url;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return this.date;
     }
 
@@ -54,5 +55,21 @@ public class Link {
         }
 
         return color;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }
