@@ -37,6 +37,7 @@ public class LinkDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
         db.execSQL(" CREATE TABLE " + TABLE_NAME + " (" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_LINK_URL + " TEXT NOT NULL, " +
@@ -81,9 +82,6 @@ public class LinkDBHelper extends SQLiteOpenHelper {
     }
 
 
-    /**
-     * Query records, give options to filter results
-     **/
     public List<Link> linksList(String filter) {
         String query;
         if (filter.equals("")) {
@@ -116,7 +114,7 @@ public class LinkDBHelper extends SQLiteOpenHelper {
     }
 
 
-    public Link getLink(long id) {
+ /*   public Link getLink(long id) {
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT  * FROM " + TABLE_NAME + " WHERE _id=" + id;
         Cursor cursor = db.rawQuery(query, null);
@@ -132,30 +130,8 @@ public class LinkDBHelper extends SQLiteOpenHelper {
         }
         return receivedLink;
 
-    }
+    }*/
 
-
-    /**
-     * delete record
-     **/
-    public void deleteLinkRecord(long id, Context context) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("DELETE FROM " + TABLE_NAME + " WHERE _id='" + id + "'");
-        Toast.makeText(context, "Deleted successfully.", Toast.LENGTH_SHORT).show();
-
-    }
-
-    /**
-     * update record
-     **/
-    public void updateLinkRecord(long personId, Context context, Link updatedLink) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        //you can use the constants above instead of typing the column names
-        db.execSQL("UPDATE  " + TABLE_NAME + " SET url ='" + updatedLink.getUrl() + "', status ='" + updatedLink.getStatus() + "'  WHERE _id='" + personId + "'");
-        Toast.makeText(context, "Updated successfully.", Toast.LENGTH_SHORT).show();
-
-
-    }
 
 
 }

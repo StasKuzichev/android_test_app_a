@@ -25,8 +25,6 @@ public class TestFragment extends Fragment implements TestContract.View {
 
    private EditText inputLink;
    private Button buttonOk;
-   private LinkDBHelper linkDBHelper;
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container,
@@ -62,10 +60,6 @@ public class TestFragment extends Fragment implements TestContract.View {
         inputLink.setText("");
     }
 
-    @Override
-    public void savePerson(String url, int status, String date) {
-
-    }
 
     public void transmitToAppB(String url) {
         Intent intentURL = new Intent();
@@ -75,8 +69,11 @@ public class TestFragment extends Fragment implements TestContract.View {
         intentURL.putExtra("bool", true);
         intentURL.putExtra("type", "edit");
         intentURL.putExtra("idLink", "0");
+        intentURL.putExtra("status", 0);
+
         startActivity(intentURL);
         inputLink.setText("");
+        //new TestFragment().getActivity().finish();
     }
 
 

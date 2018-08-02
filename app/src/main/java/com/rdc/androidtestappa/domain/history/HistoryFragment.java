@@ -1,12 +1,15 @@
 package com.rdc.androidtestappa.domain.history;
 
+import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -29,9 +32,16 @@ public class HistoryFragment extends Fragment implements HistoryContract.View, I
     private LinksAdapter linksAdapter;
     private HistoryContract.Presenter historyPresenter;
     private LinkDBHelper linkDBHelper;
-     RecyclerView recyclerView;
+    RecyclerView recyclerView;
     private String filter = "";
     private List<Link> newLinks;
+    Context context;
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
 
     @Nullable
     @Override
@@ -42,7 +52,10 @@ public class HistoryFragment extends Fragment implements HistoryContract.View, I
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
         super.onViewCreated(view, savedInstanceState);
+
+        context = getActivity();
         setHasOptionsMenu(true);
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.hasFixedSize();
@@ -53,22 +66,32 @@ public class HistoryFragment extends Fragment implements HistoryContract.View, I
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(llm);
 
-        linksAdapter = new LinksAdapter(getContext(), new HistoryPresenter().links);
+        linksAdapter = new LinksAdapter(context, new HistoryPresenter().links);
         linksAdapter.setListener(this);
         recyclerView.setAdapter(linksAdapter);
 
         historyPresenter.setView(this);
         populateRecyclerView(filter);
+
+        final SwipeRefreshLayout pullToRefresh = view.findViewById(R.id.pullToRefresh);
+        pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                populateRecyclerView(filter);
+                pullToRefresh.setRefreshing(false);
+            }
+        });
     }
 
-    private void populateRecyclerView(String filter) {
+    public void populateRecyclerView(String filter) {
         linkDBHelper = new LinkDBHelper(getContext());
-        linksAdapter = new LinksAdapter(linkDBHelper.linksList(filter), getContext(), recyclerView);
+        linksAdapter = new LinksAdapter(linkDBHelper.linksList(filter), context, recyclerView);
         linksAdapter.setListener(this);
         recyclerView.setAdapter(linksAdapter);
         newLinks = linkDBHelper.linksList(filter);
 
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -95,26 +118,28 @@ public class HistoryFragment extends Fragment implements HistoryContract.View, I
         linksAdapter = new LinksAdapter(linkDBHelper.linksList(filter), getContext(), recyclerView);
         linksAdapter.setListener(this);
         recyclerView.setAdapter(linksAdapter);
-        newLinks = linkDBHelper.linksList(filter);
+        newLinks = links;
         linksAdapter.setNewData(links);
     }
-
 
     @Override
     public void onItemClick(int position) {
         Link link = newLinks.get(position);
         long id = link.getId();
         String str = String.valueOf(id);
-        Toast.makeText(getContext(), str, Toast.LENGTH_SHORT).show();
-        String url = newLinks.get(position).getUrl();
+        String url = link.getUrl();
         Intent intentURL = new Intent();
-        intentURL.setComponent(new ComponentName("com.rdc.android_test_app_b",
+        intentURL.setComponent(new ComponentName(
+                "com.rdc.android_test_app_b",
                 "com.rdc.android_test_app_b.domain.main.MainActivity"));
         intentURL.putExtra("url", url);
         intentURL.putExtra("bool", true);
         intentURL.putExtra("type", "history");
         intentURL.putExtra("idLink", str);
+        intentURL.putExtra("status", link.getStatus());
         startActivity(intentURL);
+        //new HistoryFragment().getActivity().finish();
 
     }
+
 }

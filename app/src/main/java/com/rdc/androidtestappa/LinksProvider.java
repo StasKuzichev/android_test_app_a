@@ -3,31 +3,26 @@ package com.rdc.androidtestappa;
 import android.content.ContentProvider;
 import android.content.ContentResolver;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
 
 import com.rdc.androidtestappa.db.LinkDBHelper;
+import com.rdc.androidtestappa.domain.history.HistoryFragment;
 
 public class LinksProvider extends ContentProvider {
     public static final String AUTHORITY = "links.com.rdc.androidtestappa";
-
     public static final String PATH_LINK_LIST = "LINK_NAME";
-    public static final String PATH_LINK_PLACE = "LINK_LIST_FROM_PLACE";
-    public static final String PATH_LINK_COUNT = "LINKS_COUNT";
-
-   public static final int LINKS_LIST = 1;
-   /* public static final int LINKS_FROM_SPECIFIC_PLACE = 2;
-    public static final int LINKS_COUNT = 3;*/
-
+    public static final int LINKS_LIST = 1;
     private static final UriMatcher MATCHER = new UriMatcher(UriMatcher.NO_MATCH);
-
     static {
         MATCHER.addURI(AUTHORITY, PATH_LINK_LIST, LINKS_LIST);
     }
-
     public static final String MIME_TYPE_1 = ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + "vnd.com.rdc.androidtestappa.todos";
 
     private LinkDBHelper linkDBHelper;
