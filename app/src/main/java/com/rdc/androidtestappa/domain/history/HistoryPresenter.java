@@ -2,8 +2,8 @@ package com.rdc.androidtestappa.domain.history;
 
 import android.content.Context;
 
-import com.rdc.androidtestappa.Link;
-import com.rdc.androidtestappa.db.LinkDBHelper;
+import com.rdc.androidtestappa.data.models.Link;
+import com.rdc.androidtestappa.data.db.LinkDBHelper;
 import com.rdc.androidtestappa.utils.ComparatorByDate;
 import com.rdc.androidtestappa.utils.ComparatorByStatus;
 

@@ -1,4 +1,4 @@
-package com.rdc.androidtestappa.db;
+package com.rdc.androidtestappa.data.db;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.rdc.androidtestappa.Link;
+import com.rdc.androidtestappa.data.models.Link;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -24,7 +24,7 @@ public class LinkDBHelper extends SQLiteOpenHelper {
     public static final String COLUMN_LINK_DATE = "date";
 
     private SQLiteDatabase sqLliteDatabase;
-    private static LinkDBHelper toDoListDBAdapterInstance;
+    private static LinkDBHelper linkListAdapterInstance;
     Context context;
 
     public LinkDBHelper(Context context) {
@@ -44,22 +44,22 @@ public class LinkDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // you can implement here migration process
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         this.onCreate(db);
     }
 
     public static LinkDBHelper getListDBAdapterInstance(Context context) {
-        if (toDoListDBAdapterInstance == null) {
-            toDoListDBAdapterInstance = new LinkDBHelper(context);
+        if (linkListAdapterInstance == null) {
+            linkListAdapterInstance = new LinkDBHelper(context);
         }
-        return toDoListDBAdapterInstance;
+        return linkListAdapterInstance;
     }
 
 
     //content provider's methods
     public Cursor getCursorsForAllToDos() {
-        Cursor cursor = sqLliteDatabase.query(TABLE_NAME, new String[]{COLUMN_ID, COLUMN_LINK_URL, COLUMN_LINK_STATUS, COLUMN_LINK_DATE}, null, null, null, null, null, null);
+        Cursor cursor = sqLliteDatabase.query(TABLE_NAME, new String[]{COLUMN_ID, COLUMN_LINK_URL, COLUMN_LINK_STATUS, COLUMN_LINK_DATE},
+                null, null, null, null, null, null);
         return cursor;
     }
 

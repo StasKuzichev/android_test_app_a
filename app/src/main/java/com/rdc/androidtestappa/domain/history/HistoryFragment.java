@@ -16,9 +16,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.rdc.androidtestappa.Link;
+import com.rdc.androidtestappa.data.models.Link;
 import com.rdc.androidtestappa.R;
-import com.rdc.androidtestappa.db.LinkDBHelper;
+import com.rdc.androidtestappa.data.db.LinkDBHelper;
 
 import java.util.List;
 

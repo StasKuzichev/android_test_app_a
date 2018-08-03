@@ -22,7 +22,7 @@
 
         <provider
             android:authorities="links.com.rdc.androidtestappa"
-            android:name=".LinksProvider"
+            android:name=".data.LinksProvider"
             android:exported="true"/>
     </application>
 

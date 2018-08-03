@@ -2,7 +2,7 @@ package com.rdc.androidtestappa.domain.history;
 
 import android.content.Context;
 
-import com.rdc.androidtestappa.Link;
+import com.rdc.androidtestappa.data.models.Link;
 import java.util.List;
 
 public interface HistoryContract {

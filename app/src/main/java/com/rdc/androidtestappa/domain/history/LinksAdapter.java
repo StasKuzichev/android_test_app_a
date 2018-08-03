@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.rdc.androidtestappa.Link;
+import com.rdc.androidtestappa.data.models.Link;
 import com.rdc.androidtestappa.R;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.rdc.androidtestappa;
+package com.rdc.androidtestappa.data;
 
 import android.content.ContentProvider;
 import android.content.ContentResolver;
@@ -9,7 +9,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.rdc.androidtestappa.db.LinkDBHelper;
+import com.rdc.androidtestappa.data.db.LinkDBHelper;
 
 public class LinksProvider extends ContentProvider {
     public static final String AUTHORITY = "links.com.rdc.androidtestappa";
@@ -19,7 +19,7 @@ public class LinksProvider extends ContentProvider {
     static {
         MATCHER.addURI(AUTHORITY, PATH_LINK_LIST, LINKS_LIST);
     }
-    public static final String MIME_TYPE_1 = ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + "vnd.com.rdc.androidtestappa.todos";
+    public static final String TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + "vnd.com.rdc.androidtestappa.todos";
 
     private LinkDBHelper linkDBHelper;
 
@@ -28,7 +28,7 @@ public class LinksProvider extends ContentProvider {
     public String getType(@NonNull Uri uri) {
         switch (MATCHER.match(uri)) {
             case LINKS_LIST:
-                return MIME_TYPE_1;
+                return TYPE;
         }
         return null;
     }

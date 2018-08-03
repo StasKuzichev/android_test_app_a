@@ -1,4 +1,4 @@
-package com.rdc.androidtestappa;
+package com.rdc.androidtestappa.data.models;
 
 import android.graphics.Color;
 
